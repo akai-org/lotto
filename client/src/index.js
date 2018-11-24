@@ -13,8 +13,6 @@ import AchievementsScreen from "./pages/AchievementsScreen";
 import GameScreen from "./pages/GameScreen";
 import MapScreen from "./pages/MapScreen";
 import PrivateRoute from "./components/PrivateRoute";
-import { start } from "./utils/location";
-start();
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
