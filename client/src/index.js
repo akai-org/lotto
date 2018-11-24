@@ -14,7 +14,7 @@ import GameScreen from './pages/GameScreen';
 import MapScreen from './pages/MapScreen';
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Quicksand:500,700&subset=latin-ext');
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
   
   html {
     margin: 0;
@@ -30,7 +30,7 @@ injectGlobal`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${theme.color.text.primary};
-    line-height: ${theme.font.lineHeight.heading}
+    line-height: ${theme.font.lineHeight.caption}
   }
 
   h1 {
@@ -47,7 +47,7 @@ injectGlobal`
 
   p {
     line-height: ${theme.font.lineHeight.text}; 
-    color: red;
+    color: ${theme.color.text.primary};
     margin: 1em 0 1.5em;
   }
 
