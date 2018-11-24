@@ -11,24 +11,28 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     maximumAge: 0
   };
 
-  navigator.geolocation.getCurrentPosition(
-    location => {
-      setLocation(location);
-    },
-    err => {
-      setLocation({ error: `ERROR(${err.code}): ${err.message}` });
-    },
-    options
-  );
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      location => {
+        setLocation(location);
+      },
+      err => {
+        setLocation({ error: `ERROR(${err.code}): ${err.message}` });
+      },
+      options
+    );
+  }
 
   if (location.error) {
     return <Redirect to="/" />;
   }
 
   if (!location.coords) {
+    getLocation();
     return <Route {...rest} render={props => <Loading {...props} />} />;
   }
 
+  setTimeout(getLocation, options.timeout);
   return <Route {...rest} render={props => <Component {...props} />} />;
 };
 

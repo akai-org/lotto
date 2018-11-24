@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "react-emotion";
 
 import Menu from "./Menu";
@@ -29,31 +29,21 @@ const StarCount = styled('div')`
     left: -24px;
   }
 `
-class Navbar extends React.Component {
-  constructor() {
-    super();
-    this.state = { showMenu: false };
-    this.showMenu = this.showMenu.bind(this);
-    this.hideMenu = this.hideMenu.bind(this);
-  }
 
-  render() {
-    return (<>
+function Navbar({ stars }) {
+  const [menuVisibility, setMenuVisibility] = useState(false);
+  const showMenu = () => setMenuVisibility(true);
+  const hideMenu = () => setMenuVisibility(false);
+
+  return (
+    <>
       <Header>
-        <MenuIcon onClick={this.showMenu}></MenuIcon>
-        <StarCount>{this.props.stars}</StarCount>
+        <MenuIcon onClick={showMenu}></MenuIcon>
+        <StarCount>{stars}</StarCount>
       </Header>
-      <Menu isVisible={this.state.showMenu} onClose={this.hideMenu} />
-    </>);
-  }
-
-  showMenu() {
-    this.setState({ showMenu: true });
-  }
-
-  hideMenu() {
-    this.setState({ showMenu: false });
-  }
+      <Menu isVisible={menuVisibility} onClose={hideMenu} />
+    </>
+  );
 }
 
 export default Navbar;

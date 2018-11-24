@@ -10,7 +10,7 @@ const MenuBox = styled('nav')`
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 100%;
   z-index: 201;
   color: #fff;
   
@@ -48,6 +48,13 @@ const MenuLink = styled(Link)`
   padding: 30px;
   text-transform: uppercase;
   font-weight: 700;
+
+  transition: .3s;
+
+  &:hover {
+    background: ${props => props.theme.color.accent.primary.light};
+    color: ${props => props.theme.color.accent.primary.base};
+  }
 `;
 
 const options = [
