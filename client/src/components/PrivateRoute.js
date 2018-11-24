@@ -12,7 +12,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   };
 
   const getLocation = () => {
-    console.log('where am i?');
     navigator.geolocation.getCurrentPosition(
       location => {
         setLocation(location);
