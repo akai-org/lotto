@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 module.exports = () => {
-  let uri = process.env.MONGODB_URI || 'mongodb://web:G8Ld"<t]8Sgu(,=P@ds235732.mlab.com:35732/lootto';
+  let uri = process.env.MONGODB_URI;
   const options = {
     useNewUrlParser: true,
     useCreateIndex: true
