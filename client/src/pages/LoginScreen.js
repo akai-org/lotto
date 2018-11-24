@@ -11,18 +11,39 @@ import Particles from 'react-particles-js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 export default class LoginScreen extends Component {
-  constructor() {
-    super();
-
-    this.componentClicked = this.componentClicked.bind(this);
-  }
-
-  componentClicked() {
-    console.log('clicked');
-  }
-
   responseFacebook(response) {
-    console.log(response);
+    const {
+      accessToken,
+      data_access_expiration_time,
+      email,
+      expiresIn,
+      name,
+      picture,
+      reauthorize_required_in,
+      signedRequest,
+      userID
+    } = response;
+    // const { email, password } = this.state;
+    // // const { onLogin, hist ory } = this.props;
+
+    // try {
+    //   const { token, userName } = await request('auth/login', {
+    //     method: 'POST',
+    //     body: { email, password },
+    //   });
+
+    //   saveCookie(TOKEN_COOKIE, token);
+    //   saveCookie(USER_NAME_COOKIE, userName);
+    //   onLogin(userName);
+    //   history.push('/home');
+    // } catch (error) {
+    //   this.setState({
+    //     blocked: false,
+    //     email: '',
+    //     password: '',
+    //     errorMessage: 'Failed to login.',
+    //   });
+    // }
   }
 
   render() {
@@ -53,16 +74,16 @@ export default class LoginScreen extends Component {
             appId="1088597931155576"
             autoLoad={true}
             fields="name,email,picture"
-            onClick={this.componentClicked}
             callback={this.responseFacebook}
             render={renderProps => (
               <Button
                 as="input"
                 type="submit"
-                value="Zaloguj się przez facebook"
                 primary
-                handleClick={renderProps.onClick}
-              />
+                onClick={renderProps.onClick}
+              >
+                Zaloguj się przez facebook
+              </Button>
             )}
           />
         </Layout>

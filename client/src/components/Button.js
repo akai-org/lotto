@@ -1,8 +1,7 @@
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
-import React from 'react';
 
-const ButtonWrapper = styled('button')`
+const Button = styled('button')`
   cursor: pointer;
   display: inline-block;
   border: none;
@@ -29,12 +28,6 @@ const ButtonWrapper = styled('button')`
       background: ${theme.color.accent.primary.base};
     `}
 `;
-
-const Button = ({ value, primary, secondary }) => (
-  <ButtonWrapper primary={primary} secondary={secondary}>
-    {value}
-  </ButtonWrapper>
-);
 
 Button.propTypes = {
   text: PropTypes.string,
