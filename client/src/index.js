@@ -11,15 +11,15 @@ import GameScreen from './pages/GameScreen';
 
 render(
   <Fragment>
-     <Router>
-          <Switch>
-            <Route exact path="/" component={HomeScreen} />
-            <Route path="/login" component={LoginScreen} />
-            <Route path="/settings" component={SettingsScreen} />
-            <Route path="/achievements" component={AchievementsScreen} />
-            <Route path="/game" component={GameScreen} />
-          </Switch>
-        </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomeScreen} />
+        <Route path="/login" component={LoginScreen} />
+        <Route path="/settings" component={SettingsScreen} />
+        <Route path="/achievements" component={AchievementsScreen} />
+        <Route path="/game" component={GameScreen} />
+      </Switch>
+    </Router>
   </Fragment>,
   document.getElementById('root')
 );
