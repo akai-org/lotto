@@ -8,10 +8,6 @@ module.exports = {
     {
       name: "Lootto",
       script: "npm start",
-      env: {
-        MONGODB_URI:
-          "mongodb://web:h95fQG4E8QBrqpFw@ds235732.mlab.com:35732/lootto"
-      },
       env_production: {
         NODE_ENV: "production"
       }
