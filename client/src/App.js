@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styled, { css } from "react-emotion";
+import React, { useState } from 'react';
+import styled, { css } from 'react-emotion';
 
-const Button = styled("button")`
+const Button = styled('button')`
   color: hotpink;
 `;
 
