@@ -6,8 +6,10 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd client && npm start",
+    "build": "cd client && npm run build && mv build ../server/build",
     "server": "cd server && npm start",
-    "postinstall": "cd client && npm install && cd .. && cd server && npm install"
+    "postinstall": "cd client && npm install && cd .. && cd server && npm install",
+    "deploy": "npm install && npm run build && pm2 restart Lootto"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,7 @@
   "dependencies": {
     "concurrently": "^4.1.0",
     "dotenv": "^6.1.0",
-    "mongoose": "^5.3.13"
+    "mongoose": "^5.3.13",
+    "react-helmet": "^5.2.0"
   }
 }
