@@ -23,3 +23,7 @@ connect()
   .catch(err => {
     console.error("mongodb connection failed", err);
   });
+
+app.get("*", function(request, response) {
+  response.sendFile(path.resolve(__dirname, "index.html"));
+});
