@@ -17,7 +17,7 @@ const theme = {
       overlay: 'rgba(0, 0, 0, 0.5)'
     },
     text: {
-      primary: '#222',
+      primary: 'rgb(255, 255, 255)',
       secondary: '#aaa',
       tertiary: '#fff',
       base: '#666'
@@ -31,7 +31,7 @@ const theme = {
     }
   },
   font: {
-    family: 'Quicksand, sans-serif',
+    family: 'Poppins, sans-serif',
     size: {
       base: '16px',
       heading: {

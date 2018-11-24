@@ -28,13 +28,6 @@ export default class LoginScreen extends Component {
       <Fragment>
         <Particles
           params={{
-            polygon: {
-              enable: true,
-              type: 'inside',
-              move: {
-                radius: 10
-              }
-            },
             particles: {
               line_linked: {
                 shadow: {
@@ -53,7 +46,7 @@ export default class LoginScreen extends Component {
           }}
         />
         <Layout distributed spanned narrow>
-          <Logo welcome subtitle="Lootto" />
+          <Logo welcome title="Lootto" subtitle="get rekt." />
           <FacebookLogin
             appId="1088597931155576"
             autoLoad={true}
