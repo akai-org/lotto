@@ -30,7 +30,6 @@ const StarCount = styled('div')`
   }
 `
 
-
 function Navbar({ stars }) {
   const [menuVisibility, setMenuVisibility] = useState(false);
   const showMenu = () => setMenuVisibility(true);
@@ -47,25 +46,4 @@ function Navbar({ stars }) {
   );
 }
 
-/*class Navbar extends React.Component {
-  constructor() {
-    super();
-    this.state = { showMenu: false };
-    this.showMenu = this.showMenu.bind(this);
-    this.hideMenu = this.hideMenu.bind(this);
-  }
-
-  render() {
-    return ();
-  }
-
-  showMenu() {
-    this.setState({ showMenu: true });
-  }
-
-  hideMenu() {
-    this.setState({ showMenu: false });
-  }
-}
-*/
 export default Navbar;

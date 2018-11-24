@@ -48,6 +48,13 @@ const MenuLink = styled(Link)`
   padding: 30px;
   text-transform: uppercase;
   font-weight: 700;
+
+  transition: .3s;
+
+  &:hover {
+    background: ${props => props.theme.color.accent.primary.light};
+    color: ${props => props.theme.color.accent.primary.base};
+  }
 `;
 
 const options = [
