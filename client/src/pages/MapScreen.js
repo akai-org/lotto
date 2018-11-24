@@ -54,7 +54,7 @@ const MapWrapper = styled('div')`
     height: 100vh;
     position: absolute;
     z-index: 500;
-    background: #00fff8;
+    background-color: ${({ theme }) => theme.color.accent.primary.light};
     opacity: 0.3;
   }
 `;
