@@ -1,0 +1,1 @@
+git clone https://github.com/akai-org/lotto.git && npm run deploy
