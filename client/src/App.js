@@ -1,8 +1,19 @@
-import React from 'react';
-import MainMap from './Map/MainMap';
+import React, { useState } from 'react';
+import styled, { css } from 'react-emotion';
+
+const Button = styled('button')`
+  color: hotpink;
+`;
 
 function App() {
-  return <MainMap />;
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <Button onClick={() => setCount(count + 1)}>Click me</Button>
+    </div>
+  );
 }
 
 export default App;
