@@ -15,35 +15,39 @@ import MapScreen from './pages/MapScreen';
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Quicksand:500,700&subset=latin-ext');
+  
+  html {
+    margin: 0;
+  }
 
   body {
-    color: ${theme.color.text.base}};
-    font-family: ${theme.font.family}};
-    font-weight:  ${theme.font.weight.base}};
+    color: ${theme.color.text.base};
+    font-family: ${theme.font.family};
+    font-weight: ${theme.font.weight.base};
     margin: 0;
     overflow-x: hidden;  
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color:  ${theme.color.text.primary}};
-    line-height:  ${theme.font.lineHeight.heading}}
+    color: ${theme.color.text.primary};
+    line-height: ${theme.font.lineHeight.heading}
   }
 
   h1 {
-    font-size:  ${theme.font.size.heading.primary}};
+    font-size: ${theme.font.size.heading.primary};
   }
 
   h2 {
-    font-size:  ${theme.font.size.heading.secondary}};
+    font-size: ${theme.font.size.heading.secondary};
   }
 
   h3 {
-    font-size:  ${theme.font.size.heading.tertiary}};
+    font-size: ${theme.font.size.heading.tertiary};
   }
 
   p {
-    line-height:  ${theme.font.lineHeight.text}}; 
-    color:  ${theme.color.text.base}};
+    line-height: ${theme.font.lineHeight.text}; 
+    color: red;
     margin: 1em 0 1.5em;
   }
 
