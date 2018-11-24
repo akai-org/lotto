@@ -4,10 +4,9 @@ import styled from "react-emotion";
 import Menu from "./Menu";
 
 import burger from "../assets/burger.svg";
-import cross from "../assets/cross.svg";
 import star from "../assets/star.svg";
 
-const Nav = styled('nav')`
+const Header = styled('header')`
   background: ${props => props.theme.color.accent.primary.base};
   color: #fff;
   padding: 20px;
@@ -16,7 +15,7 @@ const Nav = styled('nav')`
 `;
 
 const MenuIcon = ({ onClick }) => (
-  <a onClick={onClick}><img src={burger} width="25" height="25" alt="Show menu" /></a>
+  <a onClick={onClick}><img src={burger} width="25" height="25" alt="Pokaż menu" /></a>
 );
 
 const StarCount = styled('div')`
@@ -40,10 +39,10 @@ class Navbar extends React.Component {
 
   render() {
     return (<>
-      <Nav>
+      <Header>
         <MenuIcon onClick={this.showMenu}></MenuIcon>
         <StarCount>{this.props.stars}</StarCount>
-      </Nav>
+      </Header>
       <Menu isVisible={this.state.showMenu} onClose={this.hideMenu} />
     </>);
   }

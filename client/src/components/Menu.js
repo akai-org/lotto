@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "react-emotion";
+import { Link } from "react-router-dom";
+import cross from "../assets/cross.svg";
 
 const MenuBox = styled('nav')`
   background: ${props => props.theme.color.accent.primary.base};
+  padding-top: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,10 +36,36 @@ const Overlay = styled('div')`
   `}
 `;
 
+const MenuUl = styled('ul')`
+  margin: 100px 0 0;
+  padding: 0;
+  list-style-type: none;
+`;
+
+const MenuLink = styled(Link)`
+  display: block;
+  margin: 0;
+  padding: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+`;
+
+const options = [
+  { label: 'Twoje konto', path: '/account' },
+  { label: 'Kantor', path: '/exchange' },
+  { label: 'Bonusy', path: '/powerups' },
+  { label: 'Osiągnięcia', path: '/achievements' }
+];
+
 const Menu = ({ isVisible, onClose }) => (
   <>
     <MenuBox isVisible={isVisible}>
-      some nice options
+      <a style={{marginTop: 40, marginLeft: 20}} onClick={onClose}>
+        <img src={cross} width="25" height="25" alt="Ukryj menu" />
+      </a>
+      <MenuUl>
+        {options.map(({ label, path }) => <li key={path}><MenuLink to={path}>{label}</MenuLink></li>)}
+      </MenuUl>
     </MenuBox>
     <Overlay isVisible={isVisible} onClick={onClose}>
     </Overlay>
