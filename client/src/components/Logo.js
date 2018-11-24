@@ -18,9 +18,9 @@ const LogoWrapper = styled('div')`
     &::after {
       content: '';
       display: block;
-      width: 100px;
-      height: 2px;
-      background-color: white;
+      width: 80px;
+      height: 3px;
+      background-color: ${({ theme }) => theme.color.accent.primary.light};
     }
   }
 

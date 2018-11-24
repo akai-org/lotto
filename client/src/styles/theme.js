@@ -59,7 +59,7 @@ const theme = {
     }
   },
   size: {
-    borderRadius: '6px',
+    borderRadius: '30px',
     line: '2px'
   },
   effects: {
