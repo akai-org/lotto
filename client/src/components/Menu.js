@@ -10,7 +10,7 @@ const MenuBox = styled('nav')`
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 100%;
   z-index: 201;
   color: #fff;
   
