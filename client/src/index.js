@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { Switch } from 'react-router';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { injectGlobal } from 'emotion';
+import { ThemeProvider } from 'emotion-theming';
+import theme from './styles/theme';
 import * as serviceWorker from './serviceWorker';
 import HomeScreen from './pages/HomeScreen';
 import LoginScreen from './pages/LoginScreen';
@@ -12,25 +14,67 @@ import GameScreen from './pages/GameScreen';
 import MapScreen from './pages/MapScreen';
 
 injectGlobal`
-  * {
-    box-sizing: border-box;
-    margin: 0px;
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:500,700&subset=latin-ext');
+
+  body {
+    color: ${theme.color.text.base}};
+    font-family: ${theme.font.family}};
+    font-weight:  ${theme.font.weight.base}};
+    margin: 0;
+    overflow-x: hidden;  
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color:  ${theme.color.text.primary}};
+    line-height:  ${theme.font.lineHeight.heading}}
+  }
+
+  h1 {
+    font-size:  ${theme.font.size.heading.primary}};
+  }
+
+  h2 {
+    font-size:  ${theme.font.size.heading.secondary}};
+  }
+
+  h3 {
+    font-size:  ${theme.font.size.heading.tertiary}};
+  }
+
+  p {
+    line-height:  ${theme.font.lineHeight.text}}; 
+    color:  ${theme.color.text.base}};
+    margin: 1em 0 1.5em;
+  }
+
+  a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: inherit;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
   }
 `;
 
 render(
-  <Fragment>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={HomeScreen} />
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/settings" component={SettingsScreen} />
-        <Route path="/achievements" component={AchievementsScreen} />
-        <Route path="/game" component={GameScreen} />
-        <Route path="/map" component={MapScreen} />
-      </Switch>
-    </Router>
-  </Fragment>,
+  <ThemeProvider theme={theme}>
+    <Fragment>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomeScreen} />
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/settings" component={SettingsScreen} />
+          <Route path="/achievements" component={AchievementsScreen} />
+          <Route path="/game" component={GameScreen} />
+          <Route path="/map" component={MapScreen} />
+        </Switch>
+      </Router>
+    </Fragment>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 serviceWorker.unregister();
