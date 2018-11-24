@@ -3,8 +3,9 @@ const express = require("express");
 const connect = require("./services/mongodb");
 const app = express();
 const port = 3001;
+const path = require("path");
 
-app.use(express.static("build"));
+app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/user", (req, res) =>
   res.send(JSON.stringify({ userId: "asdsadsa", firstName: "Stefan" }))
