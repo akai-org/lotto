@@ -9,7 +9,7 @@
     "build": "cd client && npm run build && mv build ../server/build",
     "server": "cd server && npm start",
     "postinstall": "cd client && npm install && cd .. && cd server && npm install",
-    "deploy": "npm install && npm run build && npm run server:prod && pm2 restart Lootto"
+    "deploy": "npm install && npm run build && pm2 restart Lootto"
   },
   "keywords": [],
   "author": "",
