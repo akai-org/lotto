@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "react-emotion";
 
+import Menu from "./Menu";
+
 import burger from "../assets/burger.svg";
 import cross from "../assets/cross.svg";
 import star from "../assets/star.svg";
@@ -13,12 +15,8 @@ const Nav = styled('nav')`
   justify-content: space-between;
 `;
 
-const MenuIcon = ({ isOpen, setMenuVisibility }) => (
-  <div>
-    {isOpen
-      ? <a href onClick={ () => setMenuVisibility(false) }><img src={cross} width="25" height="25" alt="Ukryj menu" /></a>
-      : <a href onClick={ () => setMenuVisibility(true) }><img src={burger} width="25" height="25" alt="Pokaż menu" /></a>}
-  </div>
+const MenuIcon = ({ onClick }) => (
+  <a onClick={onClick}><img src={burger} width="25" height="25" alt="Show menu" /></a>
 );
 
 const StarCount = styled('div')`
@@ -32,26 +30,30 @@ const StarCount = styled('div')`
     left: -24px;
   }
 `
-
 class Navbar extends React.Component {
   constructor() {
     super();
     this.state = { showMenu: false };
-    this.setMenuVisibility = this.setMenuVisibility.bind(this);
+    this.showMenu = this.showMenu.bind(this);
+    this.hideMenu = this.hideMenu.bind(this);
   }
 
   render() {
     return (<>
       <Nav>
-        <MenuIcon isOpen={this.state.showMenu} setMenuVisibility={this.setMenuVisibility}></MenuIcon>
+        <MenuIcon onClick={this.showMenu}></MenuIcon>
         <StarCount>{this.props.stars}</StarCount>
       </Nav>
-      {this.state.showMenu && <div>menu!</div>}
+      <Menu isVisible={this.state.showMenu} onClose={this.hideMenu} />
     </>);
   }
 
-  setMenuVisibility(showMenu) {
-    this.setState({ showMenu });
+  showMenu() {
+    this.setState({ showMenu: true });
+  }
+
+  hideMenu() {
+    this.setState({ showMenu: false });
   }
 }
 
