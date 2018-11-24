@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "react-emotion";
 
+import Menu from "./Menu";
+
 import burger from "../assets/burger.svg";
-import cross from "../assets/cross.svg";
 import star from "../assets/star.svg";
 
-const Nav = styled('nav')`
+const Header = styled('header')`
   background: ${props => props.theme.color.accent.primary.base};
   color: #fff;
   padding: 20px;
@@ -13,12 +14,8 @@ const Nav = styled('nav')`
   justify-content: space-between;
 `;
 
-const MenuIcon = ({ isOpen, setMenuVisibility }) => (
-  <div>
-    {isOpen
-      ? <a href onClick={ () => setMenuVisibility(false) }><img src={cross} width="25" height="25" alt="Ukryj menu" /></a>
-      : <a href onClick={ () => setMenuVisibility(true) }><img src={burger} width="25" height="25" alt="Pokaż menu" /></a>}
-  </div>
+const MenuIcon = ({ onClick }) => (
+  <a onClick={onClick}><img src={burger} width="25" height="25" alt="Pokaż menu" /></a>
 );
 
 const StarCount = styled('div')`
@@ -33,26 +30,42 @@ const StarCount = styled('div')`
   }
 `
 
-class Navbar extends React.Component {
+
+function Navbar({ stars }) {
+  const [menuVisibility, setMenuVisibility] = useState(false);
+  const showMenu = () => setMenuVisibility(true);
+  const hideMenu = () => setMenuVisibility(false);
+
+  return (
+    <>
+      <Header>
+        <MenuIcon onClick={showMenu}></MenuIcon>
+        <StarCount>{stars}</StarCount>
+      </Header>
+      <Menu isVisible={menuVisibility} onClose={hideMenu} />
+    </>
+  );
+}
+
+/*class Navbar extends React.Component {
   constructor() {
     super();
     this.state = { showMenu: false };
-    this.setMenuVisibility = this.setMenuVisibility.bind(this);
+    this.showMenu = this.showMenu.bind(this);
+    this.hideMenu = this.hideMenu.bind(this);
   }
 
   render() {
-    return (<>
-      <Nav>
-        <MenuIcon isOpen={this.state.showMenu} setMenuVisibility={this.setMenuVisibility}></MenuIcon>
-        <StarCount>{this.props.stars}</StarCount>
-      </Nav>
-      {this.state.showMenu && <div>menu!</div>}
-    </>);
+    return ();
   }
 
-  setMenuVisibility(showMenu) {
-    this.setState({ showMenu });
+  showMenu() {
+    this.setState({ showMenu: true });
+  }
+
+  hideMenu() {
+    this.setState({ showMenu: false });
   }
 }
-
+*/
 export default Navbar;
