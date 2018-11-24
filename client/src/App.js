@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import styled, { css } from "react-emotion";
+
+const Button = styled("button")`
+  color: hotpink;
+`;
 
 function App() {
   const [count, setCount] = useState(0);
@@ -6,7 +11,7 @@ function App() {
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <Button onClick={() => setCount(count + 1)}>Click me</Button>
     </div>
   );
 }
