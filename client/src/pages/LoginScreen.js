@@ -1,5 +1,11 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout';
+import Logo from '../components/Logo';
+// import Form from '../components/Form';
+// import Input from '../components/Input';
+import Particles from 'react-particles-js';
+
 import FacebookLogin from 'react-facebook-login';
 
 export default class LoginScreen extends Component {
@@ -19,16 +25,44 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-      <div>
-        <Link to="/">Wróć na stronę główną!</Link>
-        <FacebookLogin
-          appId="1088597931155576"
-          autoLoad={true}
-          fields="name,email,picture"
-          onClick={this.componentClicked}
-          callback={this.responseFacebook}
+      <Fragment>
+        <Particles
+          params={{
+            polygon: {
+              enable: true,
+              type: 'inside',
+              move: {
+                radius: 10
+              }
+            },
+            particles: {
+              line_linked: {
+                shadow: {
+                  enable: true,
+                  color: '#3CA9D1',
+                  blur: 10
+                }
+              }
+            }
+          }}
+          style={{
+            width: '100%',
+            backgroundColor: `rgb(27, 43, 73)`,
+            position: 'absolute',
+            zIndex: '-1'
+          }}
         />
-      </div>
+        <Layout distributed spanned narrow>
+          <Logo welcome subtitle="Lootto" />
+          <FacebookLogin
+            appId="1088597931155576"
+            autoLoad={true}
+            fields="name,email,picture"
+            onClick={this.componentClicked}
+            callback={this.responseFacebook}
+          />
+        </Layout>
+      </Fragment>
     );
   }
 }
